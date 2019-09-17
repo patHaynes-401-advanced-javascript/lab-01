@@ -1,5 +1,11 @@
 # lab-01
 
+### Author: Pat Haynes
+
+### Links and Resources
+* [submission PR]()
+* [travis]()
+
 # LAB: Node Ecosystem
 
 Time to get hands on with Test Driven Development (TDD) and Continuous Integration (CI). For this lab, you will be writing a fully tested validation module and shepherd it through a CI pipeline.
