@@ -3,8 +3,8 @@
 ### Author: Pat Haynes
 
 ### Links and Resources
-* [submission PR]()
-* [travis]()
+* [submission PR](https://github.com/patHaynes-401-advanced-javascript/lab-01/pull/1)
+* [travis](https://travis-ci.com/)
 
 # LAB: Node Ecosystem
 
