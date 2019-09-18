@@ -8,7 +8,6 @@ describe('validator module', () => {
   const obj = { x: 'y' };
   const func = () => { };
   const bool = false;
-  const date = new Date('Tue Sep 17 2019 17:09:05 GMT-0700 (Pacific Daylight Time)');
 
   describe('performs basic validation of', () => {
 
@@ -149,19 +148,148 @@ describe('validator module', () => {
   });
 
 
+
   describe('string caster', () => {
+    const str = '1';
+    const num = 1;
+    const arr = ['a'];
+    const date = new Date();
+
     it('returns a string if input is string', () => {
       expect(validator.castString(str)).toBe(str);
     });
     it('returns a string if input is number or date', () => {
       expect(validator.castString(num)).toBe('1');
     });
-    it('throws an error if input is object, function or array', () => {
+    it('throws an error if input is object or array', () => {
       expect(() => {
-        validator.checkCastValidate(obj);
-        console.log(validator.checkCastValidate(obj));
+        validator.checkStringValidate(obj);
+        validator.checkStringValidate(arr);
+        validator.checkStringValidate(date);
       }).toThrow(validator.NoStringError);
     });
   });
 });
 
+
+describe('number caster', () => {
+  const str = '1';
+  const num = 1;
+  const obj = { x: 'y' };
+  const arr = ['a'];
+  const bool = false;
+  const date = new Date();
+
+  it('returns a number if input is number', () => {
+    expect(validator.castNumber(1)).toBe(num);
+  });
+  it('returns a number if input is a string', () => {
+    expect(validator.castNumber(str)).toBe(num);
+  });
+  it('returns a number if input is a date', () => {
+    expect(validator.castNumber(date)).toEqual(expect.any(Number));
+  });
+  it('throws an error if input is boolean, object, or array', () => {
+    expect(() => {
+      validator.checkNumberValidate(obj);
+      validator.checkNumberValidate(arr);
+      validator.checkNumberValidate(bool);
+    }).toThrow(validator.NoNumberError);
+  });
+});
+
+
+describe('boolean caster', () => {
+  const str = '1';
+  const num = 1;
+  const bool = true;
+  const obj = { x: 'y' };
+  const arr = ['a'];
+  const date = new Date();
+
+  it('returns a boolean if input is boolean', () => {
+    expect(validator.castBoolean(bool)).toBe(bool);
+  });
+  it('returns a boolean if input is a number', () => {
+    expect(validator.castBoolean(num)).toBe(bool);
+  });
+  it('returns a boolean if input is a string', () => {
+    expect(validator.castBoolean(str)).toBe(bool);
+  });
+  it('throws an error if input is object, array or date', () => {
+    expect(() => {
+      validator.checkBooleanValidate(obj);
+      validator.checkBooleanValidate(arr);
+      validator.checkBooleanValidate(date);
+    }).toThrow(validator.NoBooleanError);
+  });
+});
+
+
+describe('Object caster', () => {
+  const str = '1';
+  const num = 1;
+  const bool = true;
+  const obj = { x: 'y' };
+  const arr = ['a'];
+  const date = new Date();
+
+  it('returns an object if input is an object', () => {
+    expect(validator.castObject(obj)).toBe(obj);
+  });
+  it('throws an error if input array, string, number, or boolean', () => {
+    expect(() => {
+      validator.checkObjectValidate(str);
+      validator.checkObjectValidate(num);
+      validator.checkObjectValidate(bool);
+      validator.checkObjectValidate(arr);
+      validator.checkObjectValidate(date);
+    }).toThrow(validator.NoObjectError);
+  });
+});
+
+
+describe('Array caster', () => {
+  const arr = ['a'];
+  const str = '1';
+  const num = 1;
+  const bool = true;
+  const obj = { x: 'y' };
+  const date = new Date();
+
+  it('returns an array if input is an array', () => {
+    expect(validator.castArray(arr)).toBe(arr);
+  });
+  it('throws an error if input array, string, number, or boolean', () => {
+    expect(() => {
+      validator.checkArrayValidate(str);
+      validator.checkArrayValidate(num);
+      validator.checkArrayValidate(bool);
+      validator.checkArrayValidate(obj);
+      validator.checkArrayValidate(date);
+    }).toThrow(validator.NoArrayError);
+  });
+});
+
+
+describe('Date caster', () => {
+  const arr = ['a'];
+  const str = '1';
+  const num = 1;
+  const bool = true;
+  const obj = { x: 'y' };
+  const date = new Date();
+
+  it('returns a date if input is an date', () => {
+    expect(validator.castDate(date)).toBe(date);
+  });
+  it('throws an error if string, number, boolean, object or array', () => {
+    expect(() => {
+      validator.checkArrayValidate(str);
+      validator.checkArrayValidate(num);
+      validator.checkArrayValidate(bool);
+      validator.checkArrayValidate(obj);
+      validator.checkArrayValidate(arr);
+    });
+  });
+});
