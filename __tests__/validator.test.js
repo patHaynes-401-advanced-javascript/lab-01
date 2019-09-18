@@ -8,6 +8,7 @@ describe('validator module', () => {
   const obj = { x: 'y' };
   const func = () => { };
   const bool = false;
+  const date = new Date('Tue Sep 17 2019 17:09:05 GMT-0700 (Pacific Daylight Time)');
 
   describe('performs basic validation of', () => {
 
@@ -146,4 +147,21 @@ describe('validator module', () => {
     });
 
   });
+
+
+  describe('string caster', () => {
+    it('returns a string if input is string', () => {
+      expect(validator.castString(str)).toBe(str);
+    });
+    it('returns a string if input is number or date', () => {
+      expect(validator.castString(num)).toBe('1');
+    });
+    it('throws an error if input is object, function or array', () => {
+      expect(() => {
+        validator.checkCastValidate(obj);
+        console.log(validator.checkCastValidate(obj));
+      }).toThrow(validator.NoStringError);
+    });
+  });
 });
+
