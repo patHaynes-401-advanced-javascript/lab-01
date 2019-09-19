@@ -200,21 +200,30 @@ describe('number caster', () => {
 
 
 describe('boolean caster', () => {
-  const str = '1';
+  // const str = '1';
   const num = 1;
   const bool = true;
+  const boolFalse = false;
+  const boolString = 'true';
+  const boolStringFalse = 'false';
   const obj = { x: 'y' };
   const arr = ['a'];
   const date = new Date();
 
-  it('returns a boolean if input is boolean', () => {
-    expect(validator.castBoolean(bool)).toBe(bool);
+  it('returns a boolean if input is true boolean', () => {
+    expect(validator.castBoolean(bool)).toBe(true);
+  });
+  it('returns a boolean if input is false boolean', () => {
+    expect(validator.castBoolean(boolFalse)).toBe(false);
+  });
+  it('returns a boolean if input is true string', () => {
+    expect(validator.castBoolean(boolString)).toBe(true);
+  });
+  it('returns a boolean if input is false string', () => {
+    expect(validator.castBoolean(boolStringFalse)).toBe(false);
   });
   it('returns a boolean if input is a number', () => {
     expect(validator.castBoolean(num)).toBe(bool);
-  });
-  it('returns a boolean if input is a string', () => {
-    expect(validator.castBoolean(str)).toBe(bool);
   });
   it('throws an error if input is object, array or date', () => {
     expect(() => {
