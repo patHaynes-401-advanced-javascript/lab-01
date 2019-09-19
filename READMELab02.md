@@ -3,14 +3,16 @@
 ### Author: Pat Haynes
 
 ### Links and Resources
-* [submission PR](https://github.com/patHaynes-401-advanced-javascript/lab-01/pull/1)
-* [travis](https://travis-ci.com/)
+* [submission PR](https://github.com/patHaynes-401-advanced-javascript/lab-01/pull/2)
+* [travis](https://travis-ci.com/patHaynes-401-advanced-javascript/lab-01/builds/128388387)
 
-# LAB: Node Ecosystem
 
-Time to get hands on with Test Driven Development (TDD) and Continuous Integration (CI). For this lab, you will be writing a fully tested validation module and shepherd it through a CI pipeline.
+## Running the app
+    Scripts:
+        "test": "jest --verbose --coverage",
+        "lint": "eslint '**/*.js'",
+        "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json"
 
-## Before you begin
-
-Refer to *Getting Started*  in the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for complete setup, configuration, deployment, and submission instructions.
-
+## Tests
+Lint Tests: npm run lint
+Jest Tets: npm test
