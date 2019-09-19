@@ -299,6 +299,6 @@ describe('Date caster', () => {
       validator.checkArrayValidate(bool);
       validator.checkArrayValidate(obj);
       validator.checkArrayValidate(arr);
-    });
+    }).toThrow(validator.NoArrayError);
   });
 });
