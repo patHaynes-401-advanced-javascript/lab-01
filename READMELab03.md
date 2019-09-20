@@ -1,10 +1,10 @@
-# lab-02
+# lab-03
 
 ### Author: Pat Haynes
 
 ### Links and Resources
-* [submission PR](https://github.com/patHaynes-401-advanced-javascript/lab-01/pull/2)
-* [travis](https://travis-ci.com/patHaynes-401-advanced-javascript/lab-01/builds/128388387)
+* [submission PR](https://github.com/patHaynes-401-advanced-javascript/lab-01/pull/3)
+* [travis](https://travis-ci.com/patHaynes-401-advanced-javascript/lab-01/builds/128576330)
 
 
 ## Running the app
