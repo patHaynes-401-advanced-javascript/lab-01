@@ -21,15 +21,15 @@ describe('Model', () => {
   const schemaConfig = {
     // doesn't actually mater as long as passed to schema:
     name: {
-      type: String,
+      type: 'string',
       required: true
     }
   };
-
   // act
   const Cats = new Model('cats', schemaConfig);
 
-  // write some tests
+
+  //write some tests
   it('creates a schema and document collection', () => {
 
     // assert:
