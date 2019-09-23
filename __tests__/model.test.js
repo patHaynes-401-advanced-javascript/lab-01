@@ -8,7 +8,7 @@ jest.mock('../lib/database', () => {
 jest.mock('../lib/document-collection');
 
 const Model = require('../lib/model');
-const Schema = require('../lib/schema');
+const Schema = require('../lib/Schema');
 const { getCollection } = require('../lib/database');
 const DocumentCollection = require('../lib/document-collection');
 
@@ -33,7 +33,6 @@ describe('Model', () => {
   it('creates a schema and document collection', () => {
 
     // assert:
-    
     // Cats.schema should be an instance of Schema, 
     expect(Cats.schema).toBeInstanceOf(Schema);
     // with schemaConfig as saved schema
